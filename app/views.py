@@ -1,11 +1,19 @@
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.versioning import URLPathVersioning
 
 from .models import Article
 from .serializers import ArticleSerializer
 
+
+class ExampleVersioning(URLPathVersioning):
+    default_version =  1.0
+    allowed_versions = [1.0]
+    version_param = '1.0'
+
 class ArticleView(APIView):
+    versioning_class = ExampleVersioning
     def get(self, request, pk=None):
         if pk:
             article = get_object_or_404(Article.objects.all(), pk=pk)
