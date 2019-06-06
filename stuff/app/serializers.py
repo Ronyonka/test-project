@@ -1,7 +1,13 @@
 from rest_framework import serializers
 
-from .models import Article
+from .models import *
 
+class AuthorSerializer(serializers.Serializer):
+    model = Author
+    fields = [
+        'name',
+        'email'
+    ]
 
 class ArticleSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=120)

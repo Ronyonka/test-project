@@ -12,6 +12,9 @@ class ExampleVersioning(URLPathVersioning):
     allowed_versions = [1.0]
     version_param = '1.0'
 
+class AuthorView(APIView):
+    pass
+
 class ArticleView(APIView):
     versioning_class = ExampleVersioning
     def get(self, request, pk=None):
