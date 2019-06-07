@@ -33,13 +33,6 @@ def get_version():
                 raise RuntimeError('The working tree is dirty')
             version = '.post'.join(version.split('-')[:2])
 
-    else:
-        # Extract the version from the PKG-INFO file.
-        with open(join(d, 'PKG-INFO')) as f:
-            version = version_re.search(f.read()).group(1)
 
     return version
 
-
-if __name__ == '__main__':
-    print(get_version())
