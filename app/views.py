@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.versioning import URLPathVersioning
 
-from .models import Article
-from .serializers import ArticleSerializer
+from .models import *
+from .serializers import *
 
 
 class ExampleVersioning(URLPathVersioning):
@@ -13,7 +13,37 @@ class ExampleVersioning(URLPathVersioning):
     version_param = '1.0'
 
 class AuthorView(APIView):
-    pass
+    versioning_class = ExampleVersioning
+    def get(self, request, pk=None):
+        if pk:
+            author = get_object_or_404(Author.objects.all(), pk=pk)
+            serializer = AuthorSerializer(author)
+            return Response({"author": serializer.data})
+        authors = Author.objects.all()
+        serializer = AuthorSerializer(authors, many=True)
+        return Response({"authors": serializer.data})
+
+    def post(self, request):
+        serializer = AuthorSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        saved_author = get_object_or_404(Author.objects.all(), pk=pk)
+        serializer = AuthorSerializer(instance=saved_author, data=request.data, partial=True)
+
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+        return Response(serializer.data)
+
+
+    def delete(self, request, pk):
+        # Get object with this pk
+        author = get_object_or_404(Author.objects.all(), pk=pk)
+        author.delete()
+        return Response({"message": "Author with id `{}` has been deleted.".format(pk)},status=204)
+
 
 class ArticleView(APIView):
     versioning_class = ExampleVersioning
@@ -40,8 +70,8 @@ class ArticleView(APIView):
         serializer = ArticleSerializer(instance=saved_article, data=request.data, partial=True)
 
         if serializer.is_valid(raise_exception=True):
-            article_saved = serializer.save()
-        return Response({"success": "Article '{}' updated successfully".format(article_saved.title)})
+            serializer.save()
+        return Response(serializer.data)
 
 
     def delete(self, request, pk):
