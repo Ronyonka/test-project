@@ -1,5 +1,5 @@
-from .version import get_version
+from ..version import get_version
 import pkg_resources
 
-__version__='1.0.0'
+__version__=get_version()
 __build__= ''
