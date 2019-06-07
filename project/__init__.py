@@ -1,4 +1,4 @@
-from ..version import get_version
+from .version import get_version
 import pkg_resources
 
 __version__=get_version()
