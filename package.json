@@ -1,6 +1,6 @@
 {
   "name": "test-project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a dummy project to test git versioning",
   "main": "index.js",
   "directories": {
