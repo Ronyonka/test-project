@@ -1,0 +1,22 @@
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "a dummy project to test git versioning",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ronyonka/test-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ronyonka/test-project/issues"
+  },
+  "homepage": "https://github.com/Ronyonka/test-project#readme"
+}
