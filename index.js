@@ -1,1 +1,1 @@
-"console.log(\`index file -> v1.0.0\`)" 
+"console.log(\`index file -> v1.0.1\`)" 
