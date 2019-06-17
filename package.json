@@ -19,7 +19,4 @@
     "url": "https://github.com/Ronyonka/test-project/issues"
   },
   "homepage": "https://github.com/Ronyonka/test-project#readme",
-  "devDependencies": {
-    "standard-version": "^6.0.1"
-  }
 }
