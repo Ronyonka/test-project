@@ -19,4 +19,15 @@
     "url": "https://github.com/Ronyonka/test-project/issues"
   },
   "homepage": "https://github.com/Ronyonka/test-project#readme",
+  "husky": {
+    "hooks": {
+        "commit-msg": "commitlint -E  HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"],
+    "rules": {
+        "subject-case": [2, "never", ["start-case", "pascal-case"]]
+    }
+  }
 }
