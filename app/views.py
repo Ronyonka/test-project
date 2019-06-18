@@ -5,6 +5,7 @@ from rest_framework.versioning import URLPathVersioning
 
 from .models import *
 from .serializers import *
+from rest_framework.reverse import reverse
 
 
 class ExampleVersioning(URLPathVersioning):
@@ -20,7 +21,7 @@ class AuthorView(APIView):
             serializer = AuthorSerializer(author)
             return Response({"author": serializer.data})
         authors = Author.objects.all()
-        serializer = AuthorSerializer(authors, many=True)
+        serializer = AuthorSerializer(authors, many=True, context={'request': request})
         return Response({"authors": serializer.data})
 
     def post(self, request):
