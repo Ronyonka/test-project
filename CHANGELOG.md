@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/Ronyonka/test-project/compare/v1.0.0...v1.1.0) (2019-06-18)
+
+
+### Bug Fixes
+
+* removed versioning.py ([b1ffacc](https://github.com/Ronyonka/test-project/commit/b1ffacc))
+
+
+### Features
+
+* added API versioning ([d9b37e2](https://github.com/Ronyonka/test-project/commit/d9b37e2))
+
+
+
 ### [0.1.3-0](https://github.com/Ronyonka/test-project/compare/v0.1.2...v0.1.3-0) (2019-06-17)
 
 
